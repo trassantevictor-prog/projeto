@@ -1,0 +1,23 @@
+/* Etiqueta de status da loja (fundo sólido para ter contraste sobre fotos). */
+.selo-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.selo-status__ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8a9593; /* cinza = fechada */
+}
+
+.selo-status--aberta .selo-status__ponto {
+  background: var(--cor-primaria); /* verde = aberta */
+}

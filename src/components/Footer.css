@@ -1,0 +1,100 @@
+/* Rodapé com fundo suave. */
+.footer {
+  margin-top: 24px;
+  padding: 48px 0 32px;
+  background: var(--cor-superficie-suave);
+}
+
+/* Grade: 1 coluna no celular; 3 colunas (marca | lojas | navegação) no desktop. */
+.footer__grade {
+  display: grid;
+  gap: 32px;
+}
+@media (min-width: 900px) {
+  .footer__grade {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 48px;
+  }
+}
+
+.footer__marca {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer__instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px; /* alvo de toque */
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+.footer__titulo {
+  margin-bottom: 16px;
+  font-size: 1.125rem; /* 18px */
+}
+
+/* Lojas: 1 coluna no celular, 2 colunas em telas médias. */
+.footer__lojas {
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .footer__lojas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer__loja {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--cor-superficie);
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+.footer__loja strong {
+  font-size: 16px;
+  color: var(--cor-texto);
+}
+
+.footer__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px; /* alvo de toque */
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+}
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* alvo de toque */
+  color: var(--cor-texto-suave);
+}
+.footer__links a:hover {
+  color: var(--cor-primaria);
+}
+
+/* Faixa legal (CNPJ, direitos, aviso). */
+.footer__legal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--cor-borda);
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}

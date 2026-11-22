@@ -1,0 +1,35 @@
+/* Bloco verde de chamada para ação (texto branco: contraste ≈ 5,6:1 sobre #00756C). */
+.chamada-final {
+  padding: 32px 24px;
+  border-radius: 32px;
+  background: var(--cor-primaria);
+  color: #ffffff;
+}
+
+.chamada-final h2 {
+  max-width: 640px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.chamada-final p {
+  max-width: 600px;
+  color: #ffffff;
+}
+
+.chamada-final__acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (min-width: 640px) {
+  .chamada-final {
+    padding: 56px 48px;
+  }
+  .chamada-final__acoes {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

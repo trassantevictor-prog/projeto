@@ -1,0 +1,59 @@
+/* Cartão de loja: foto em cima, informações embaixo. */
+.loja-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* corta a foto nos cantos arredondados */
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-cartao);
+  background: var(--cor-superficie);
+}
+
+.loja-card__foto {
+  position: relative; /* permite posicionar o selo sobre a foto */
+  height: 180px;
+  background: var(--cor-superficie-suave);
+}
+.loja-card__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* a foto preenche sem deformar */
+}
+.loja-card__status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.loja-card__corpo {
+  display: flex;
+  flex: 1; /* cartões da mesma linha ficam com a mesma altura */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px;
+}
+.loja-card__corpo h3 {
+  font-size: 1.25rem;
+}
+
+.loja-card__endereco {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.loja-card__acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto; /* empurra os botões para o fim do cartão */
+  padding-top: 12px;
+}
+
+.loja-card__acoes-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}

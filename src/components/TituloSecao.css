@@ -1,0 +1,23 @@
+/* Cabeçalho de seção: texto à esquerda, ação à direita (no desktop). */
+.titulo-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.titulo-secao__texto {
+  max-width: 640px;
+}
+.titulo-secao__texto h2 {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 640px) {
+  .titulo-secao {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}

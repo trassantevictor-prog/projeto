@@ -1,0 +1,44 @@
+/* Espaço depois da lista de serviços. */
+.servicos-lista {
+  padding-bottom: 24px;
+}
+
+/* Aviso sobre receitas: ícone, texto e botão. */
+.aviso-receita {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 24px;
+  border-left: 6px solid var(--cor-secundaria);
+  border-radius: var(--raio-cartao);
+  background: var(--cor-superficie-suave);
+}
+
+.aviso-receita__icone {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--raio-controle);
+  background: var(--cor-superficie);
+  color: var(--cor-primaria);
+}
+
+.aviso-receita__texto h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .aviso-receita {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 32px;
+  }
+  .aviso-receita__texto {
+    flex: 1; /* o texto ocupa o espaço que sobra entre o ícone e o botão */
+  }
+}

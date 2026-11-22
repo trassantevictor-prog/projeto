@@ -1,0 +1,371 @@
+/* =====================================================================
+   ARQUIVO: src/styles/global.css
+   PAPEL: estilos que valem para o site inteiro: cores, fontes, botões,
+          grades e textos. As cores seguem o DESIGN.md do protótipo.
+   Os estilos específicos de cada componente ficam num .css ao lado dele.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1) VARIÁVEIS (design tokens)
+   O quê: guarda cores, raios e fontes em nomes fáceis (--cor-primaria).
+   Por quê: trocar a cor da marca = mudar UMA linha aqui.
+   --------------------------------------------------------------------- */
+:root {
+  --cor-fundo: #f7faf9; /* fundo geral da página (branco levemente esverdeado) */
+  --cor-superficie: #ffffff; /* fundo de cards */
+  --cor-superficie-suave: #f1f4f3; /* fundo de faixas e blocos secundários */
+  --cor-primaria: #00756c; /* verde-água profundo: botões e títulos de destaque */
+  --cor-primaria-escura: #0d5d56; /* versão escura da primária (hover) */
+  --cor-secundaria: #00a99d; /* verde-água claro: só detalhes decorativos */
+  --cor-acento: #ff6600; /* laranja: reservado para o botão de WhatsApp */
+  --cor-texto: #0f2a28; /* texto principal (grafite esverdeado) */
+  --cor-texto-suave: #3e4947; /* texto secundário */
+  --cor-borda: rgba(15, 42, 40, 0.08); /* linha fina ao redor de cards */
+
+  --raio-cartao: 24px; /* cantos de cards grandes */
+  --raio-controle: 16px; /* cantos de botões e campos */
+  --raio-tag: 12px; /* cantos de etiquetas pequenas */
+
+  --sombra-flutuante: 0 8px 30px rgba(15, 42, 40, 0.08); /* sombra suave */
+
+  --fonte-titulo: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --fonte-corpo: 'Inter', system-ui, sans-serif;
+
+  --margem-pagina: 20px; /* espaço lateral no celular */
+  --largura-max: 1200px; /* largura máxima do conteúdo no desktop */
+}
+
+/* Em telas maiores, aumenta o espaço lateral. */
+@media (min-width: 900px) {
+  :root {
+    --margem-pagina: 32px;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   2) RESET e BASE
+   --------------------------------------------------------------------- */
+
+/* O quê: inclui borda e padding no cálculo da largura. Por quê: evita caixas "estourarem". */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0; /* tira a margem padrão do navegador */
+  font-family: var(--fonte-corpo); /* fonte dos textos */
+  font-size: 16px; /* tamanho mínimo de leitura confortável */
+  line-height: 1.6; /* espaço entre linhas */
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  -webkit-font-smoothing: antialiased; /* letras mais nítidas no Mac/iOS */
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0; /* zera margens: o espaçamento é controlado por "gap" e classes */
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2rem; /* 32px no celular */
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.625rem; /* 26px */
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 3rem; /* 48px no desktop */
+    line-height: 1.12;
+  }
+  h2 {
+    font-size: 2rem; /* 32px no desktop */
+  }
+}
+
+a {
+  color: inherit; /* links herdam a cor do texto ao redor */
+  text-decoration: none; /* sem sublinhado padrão (botões e menus) */
+}
+
+img {
+  display: block; /* tira o espacinho que aparece abaixo de imagens */
+  max-width: 100%; /* imagem nunca passa da largura da tela */
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* tira as bolinhas das listas */
+}
+
+button {
+  font: inherit; /* botões usam a mesma fonte do site */
+}
+
+/* O quê: anel de foco visível para quem navega pelo teclado (Tab). Por quê: acessibilidade. */
+:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+/* O quê: ícones Material Symbols não encolhem dentro de flex. */
+.icone {
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* O quê: respeita quem pediu "menos animação" nas configurações do aparelho. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   3) ESTRUTURA: container, seções e grades
+   --------------------------------------------------------------------- */
+
+/* Container: centraliza o conteúdo e limita a largura. */
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--margem-pagina);
+}
+
+/* Seção: bloco de página com espaço em cima e embaixo. */
+.secao {
+  padding: 48px 0;
+}
+.secao--suave {
+  background: var(--cor-superficie-suave); /* faixa com fundo diferente */
+}
+@media (min-width: 900px) {
+  .secao {
+    padding: 72px 0;
+  }
+}
+
+/* Topo das páginas internas (Serviços, Lojas, 404). */
+.pagina-topo {
+  padding: 40px 0 8px;
+}
+.pagina-topo h1 {
+  margin-bottom: 12px;
+}
+.pagina-topo p {
+  max-width: 640px;
+}
+
+/* Grade responsiva: 1 coluna no celular, mais colunas em telas maiores. */
+.grade {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .grade--2,
+  .grade--3,
+  .grade--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grade--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grade--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------------------------------------------------------------------
+   4) PEÇAS REUTILIZÁVEIS: card, textos, botões, chips
+   --------------------------------------------------------------------- */
+
+.card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-cartao);
+  padding: 24px;
+}
+
+.texto-suave {
+  color: var(--cor-texto-suave);
+}
+
+/* Pequeno texto em maiúsculas acima dos títulos. */
+.sobretitulo {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+}
+
+/* Link com seta, ex.: "Ver todos os serviços". */
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px; /* alvo de toque mínimo de 44px */
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+.link-seta:hover {
+  color: var(--cor-primaria-escura);
+}
+
+/* Botões: .btn é a base; as variações mudam só cor e tamanho. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px; /* alvo de toque confortável */
+  padding: 0 24px;
+  border: 1.5px solid transparent;
+  border-radius: var(--raio-controle);
+  font-family: var(--fonte-corpo);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, filter 0.2s, transform 0.1s;
+}
+.btn:active {
+  transform: scale(0.98); /* "afunda" um pouco ao clicar */
+}
+.btn--primario {
+  background: var(--cor-primaria);
+  color: #ffffff;
+}
+.btn--primario:hover {
+  background: var(--cor-primaria-escura);
+}
+.btn--secundario {
+  background: transparent;
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+.btn--secundario:hover {
+  background: rgba(0, 169, 157, 0.08);
+}
+.btn--acento {
+  background: var(--cor-acento);
+  color: var(--cor-texto); /* texto escuro: contraste bom sobre laranja */
+}
+.btn--acento:hover {
+  filter: brightness(1.06);
+}
+.btn--claro {
+  background: #ffffff;
+  color: var(--cor-primaria);
+}
+.btn--claro:hover {
+  filter: brightness(0.96);
+}
+.btn--pequeno {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+.btn--bloco {
+  width: 100%; /* ocupa toda a largura disponível */
+}
+
+/* Barra de filtros (Serviços e Lojas). */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(0, 169, 157, 0.35);
+  border-radius: 999px; /* formato de pílula */
+  background: var(--cor-fundo);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+.chip:hover {
+  background: rgba(0, 169, 157, 0.08);
+}
+.chip--ativo {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #ffffff;
+}
+.chip--ativo:hover {
+  background: var(--cor-primaria-escura);
+}
+.contagem {
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+
+/* Etiqueta pequena (categoria, "Exige receita"...). */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--raio-tag);
+  background: var(--cor-superficie-suave);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+.etiqueta--alerta {
+  background: rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(255, 102, 0, 0.3);
+  color: var(--cor-texto);
+}
+
+/* ---------------------------------------------------------------------
+   5) ACESSIBILIDADE: link "pular para o conteúdo"
+   Fica escondido e só aparece quando a pessoa aperta Tab.
+   --------------------------------------------------------------------- */
+.pular-link {
+  position: absolute;
+  top: -100px; /* fora da tela */
+  left: 16px;
+  z-index: 100;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--cor-primaria);
+  color: #ffffff;
+  font-weight: 600;
+}
+.pular-link:focus {
+  top: 16px; /* entra na tela quando recebe foco */
+}

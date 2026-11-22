@@ -1,0 +1,144 @@
+/* ---- Topo da página da loja ---- */
+.detalhe-topo {
+  padding: 24px 0 24px;
+}
+.detalhe-topo__selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 12px;
+}
+/* O selo de status tem fundo branco; aqui ele precisa de borda para aparecer sobre o fundo claro. */
+.detalhe-topo__selos .selo-status {
+  border: 1px solid var(--cor-borda);
+}
+
+/* ---- Layout em áreas nomeadas ----
+   Celular: uma coluna (galeria > lateral > serviços).
+   Desktop: galeria e serviços à esquerda; lateral à direita. */
+.detalhe {
+  display: grid;
+  gap: 24px;
+  grid-template-areas:
+    'galeria'
+    'lateral'
+    'servicos';
+}
+.detalhe__galeria {
+  grid-area: galeria;
+}
+.detalhe__lateral {
+  grid-area: lateral;
+}
+.detalhe__servicos {
+  grid-area: servicos;
+}
+
+@media (min-width: 900px) {
+  .detalhe {
+    grid-template-columns: 7fr 5fr;
+    grid-template-areas:
+      'galeria lateral'
+      'servicos lateral';
+    align-items: start;
+  }
+  .detalhe__lateral {
+    position: sticky; /* acompanha a rolagem */
+    top: 96px; /* logo abaixo do cabeçalho fixo */
+  }
+}
+
+/* ---- Galeria ---- */
+.detalhe__foto-principal {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--raio-cartao);
+  background: var(--cor-superficie-suave);
+}
+.detalhe__fotos-menores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.detalhe__fotos-menores img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--raio-controle);
+  background: var(--cor-superficie-suave);
+}
+@media (min-width: 900px) {
+  .detalhe__foto-principal {
+    height: 380px;
+  }
+}
+
+/* ---- Lateral (contatos, mapa, horários) ---- */
+.detalhe__lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.detalhe__bloco {
+  padding-top: 12px;
+}
+.detalhe__bloco h2 {
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+}
+.detalhe__mapa {
+  width: 100%;
+  height: 220px;
+  border: 0;
+  border-radius: var(--raio-controle);
+  background: var(--cor-superficie-suave);
+}
+
+.detalhe__horarios {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.detalhe__horarios div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--cor-superficie-suave);
+  font-size: 15px;
+}
+.detalhe__horarios dd {
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+/* ---- Serviços ---- */
+.detalhe__servicos h2 {
+  margin-bottom: 8px;
+  font-size: 1.375rem;
+}
+.detalhe__lista-servicos {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+.detalhe__lista-servicos li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--cor-superficie-suave);
+  font-weight: 500;
+}
+.detalhe__lista-servicos .icone {
+  color: var(--cor-primaria);
+}
+@media (min-width: 640px) {
+  .detalhe__lista-servicos {
+    grid-template-columns: 1fr 1fr;
+  }
+}

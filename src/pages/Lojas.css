@@ -1,0 +1,12 @@
+/* Espaço depois da lista de lojas. */
+.lojas-lista {
+  padding-bottom: 24px;
+}
+
+/* Mensagem quando o filtro não encontra nenhuma loja. */
+.lojas-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}

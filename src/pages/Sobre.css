@@ -1,0 +1,68 @@
+/* ---- Quem somos: texto + foto ---- */
+.sobre-topo {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+.sobre-topo h1 {
+  margin-bottom: 16px;
+}
+.sobre-topo__texto {
+  max-width: 560px;
+  margin-bottom: 24px;
+  font-size: 1.125rem;
+}
+.sobre-topo__foto {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 32px;
+  background: var(--cor-superficie-suave);
+}
+
+/* ---- Números em destaque ---- */
+.numero {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.numero__valor {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--cor-primaria);
+}
+
+/* ---- Missão, visão, valores ---- */
+.pilar__icone {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  border-radius: var(--raio-controle);
+  background: var(--cor-superficie-suave);
+  color: var(--cor-primaria);
+}
+.pilar h2 {
+  margin-bottom: 8px;
+  font-size: 1.375rem;
+}
+
+/* ---- Rede Associadas ---- */
+.rede {
+  max-width: 760px;
+}
+.rede h2 {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 900px) {
+  .sobre-topo {
+    grid-template-columns: 7fr 5fr;
+    gap: 48px;
+  }
+  .sobre-topo__foto {
+    height: 440px;
+  }
+}

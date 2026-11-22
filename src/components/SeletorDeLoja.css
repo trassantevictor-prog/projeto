@@ -1,0 +1,97 @@
+/* Camada que cobre a tela toda. No celular a janela sobe de baixo; no desktop fica no centro. */
+.seletor {
+  position: fixed;
+  inset: 0; /* top/right/bottom/left = 0 */
+  z-index: 100;
+  display: flex;
+  align-items: flex-end; /* celular: colada embaixo */
+  justify-content: center;
+}
+
+.seletor__fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 42, 40, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.seletor__janela {
+  position: relative; /* fica acima do fundo */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  padding: 24px;
+  overflow-y: auto; /* rola se a lista for maior que a tela */
+  border-radius: 24px 24px 0 0;
+  background: var(--cor-superficie);
+  box-shadow: 0 20px 48px rgba(15, 42, 40, 0.12);
+}
+
+.seletor__topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.seletor__titulo {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.seletor__fechar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--cor-superficie-suave);
+  color: var(--cor-texto);
+  cursor: pointer;
+}
+
+.seletor__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seletor__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--cor-superficie-suave);
+}
+
+.seletor__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  font-size: 14px;
+}
+.seletor__info strong {
+  font-size: 16px;
+}
+.seletor__info .selo-status {
+  margin-top: 4px;
+}
+
+@media (min-width: 640px) {
+  .seletor {
+    align-items: center; /* desktop: no centro */
+    padding: 24px;
+  }
+  .seletor__janela {
+    border-radius: 24px;
+  }
+}

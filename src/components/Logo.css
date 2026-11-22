@@ -1,0 +1,38 @@
+/* Logo: quadrado laranja + nome em duas linhas. */
+.logo {
+  display: inline-flex; /* alinha marca e texto lado a lado */
+  align-items: center; /* centraliza na vertical */
+  gap: 10px; /* espaço entre marca e texto */
+}
+
+.logo__marca {
+  display: grid; /* grid + place-items centraliza o ícone no meio do quadrado */
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--cor-acento);
+  color: var(--cor-texto);
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25); /* brilho laranja suave */
+}
+
+.logo__texto {
+  display: flex;
+  flex-direction: column; /* nome em cima, região embaixo */
+  line-height: 1.1;
+}
+
+.logo__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.logo__regiao {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em; /* letras mais espaçadas */
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}

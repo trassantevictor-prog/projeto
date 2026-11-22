@@ -1,0 +1,130 @@
+/* ---- Capa (hero) ---- */
+.hero {
+  padding-top: 32px;
+}
+
+.hero__grade {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero__marca {
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+}
+
+.hero__texto h1 {
+  margin-bottom: 16px;
+}
+
+.hero__descricao {
+  max-width: 520px;
+  margin-bottom: 24px;
+  font-size: 1.125rem;
+}
+
+.hero__acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero__foto {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--cor-superficie-suave);
+}
+.hero__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Selo branco sobre a foto. */
+.hero__selo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+/* ---- Faixa com 3 diferenciais ---- */
+.diferenciais {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 32px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+}
+
+.diferencial {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.diferencial__icone {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--raio-controle);
+  background: var(--cor-superficie-suave);
+  color: var(--cor-primaria);
+}
+
+.diferencial__titulo {
+  margin-bottom: 4px;
+  font-size: 1.125rem;
+}
+
+/* ---- Sobre nós (resumo) ---- */
+.sobre-resumo {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---- Telas maiores ---- */
+@media (min-width: 640px) {
+  .hero__acoes {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding-top: 48px;
+  }
+  .hero__grade {
+    grid-template-columns: 7fr 5fr; /* texto maior que a foto */
+    gap: 48px;
+  }
+  .hero__foto {
+    height: 460px;
+  }
+  .diferenciais {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 32px;
+  }
+  .sobre-resumo {
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+  }
+}

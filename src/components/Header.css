@@ -1,0 +1,118 @@
+/* Cabeçalho: gruda no topo ao rolar a página. */
+.header {
+  position: sticky; /* acompanha a rolagem */
+  top: 0;
+  z-index: 50; /* fica acima do conteúdo */
+  background: rgba(247, 250, 249, 0.92); /* fundo quase opaco */
+  backdrop-filter: blur(12px); /* desfoque do que passa por trás */
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.header__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo à esquerda, ações à direita */
+  gap: 8px;
+  min-height: 72px;
+}
+
+/* ---- Menu (versão celular): escondido até o botão ser tocado ---- */
+.menu {
+  display: none;
+  position: absolute; /* abre embaixo do cabeçalho */
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px var(--margem-pagina) 20px;
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra-flutuante);
+}
+.menu--aberto {
+  display: flex; /* classe ligada pelo React quando menuAberto = true */
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  min-height: 48px; /* alvo de toque confortável */
+  padding: 0 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+}
+.menu__link:hover {
+  background: var(--cor-superficie-suave);
+  color: var(--cor-texto);
+}
+.menu__link--ativo {
+  background: var(--cor-superficie-suave);
+  color: var(--cor-primaria);
+  font-weight: 700; /* página atual em negrito */
+}
+
+.header__acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Celulares estreitos: o botão de WhatsApp mostra só o ícone. */
+.header__rotulo {
+  display: none;
+}
+.header__rotulo-longo {
+  display: none; /* só aparece no desktop */
+}
+
+.header__hamburguer {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--cor-texto);
+  cursor: pointer;
+}
+.header__hamburguer:hover {
+  background: var(--cor-superficie-suave);
+}
+
+/* ---- Celulares maiores: o texto "WhatsApp" volta ao botão ---- */
+@media (min-width: 480px) {
+  .header__rotulo {
+    display: inline;
+  }
+}
+
+/* ---- Versão desktop: menu sempre visível, sem hambúrguer ---- */
+@media (min-width: 900px) {
+  .header__conteudo {
+    gap: 16px;
+  }
+  .menu {
+    display: flex;
+    position: static; /* volta ao fluxo normal */
+    flex-direction: row;
+    margin: 0 auto 0 24px; /* empurra as ações para a direita */
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .menu__link {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+  .header__hamburguer {
+    display: none;
+  }
+  .header__rotulo-longo {
+    display: inline;
+  }
+}

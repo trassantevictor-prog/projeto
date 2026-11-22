@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+  ARQUIVO: index.html
+  PAPEL: é a ÚNICA página HTML do site. O React desenha tudo dentro da
+  <div id="root">. Quem "troca de página" depois é o React Router, sem
+  recarregar este arquivo (isso se chama SPA: Single Page Application).
+-->
+<!-- [O quê] Declara que o documento é HTML5 e que o idioma é português do Brasil. [Por quê] Leitores de tela e buscadores pronunciam e indexam o texto corretamente. -->
+<html lang="pt-BR">
+  <head>
+    <!-- [O quê] Define a codificação de caracteres. [Por quê] Sem isso, "ç" e "ã" podem aparecer quebrados. -->
+    <meta charset="UTF-8" />
+
+    <!-- [O quê] Faz o site se ajustar à largura do celular. [Por quê] Sem esta linha, o celular mostraria a versão de desktop bem pequena. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- [O quê] Descrição que o Google mostra abaixo do título nos resultados de busca. -->
+    <meta
+      name="description"
+      content="Farmácias Associadas Central POA: 4 lojas em Porto Alegre com atendimento farmacêutico, serviços de saúde e praticidade."
+    />
+
+    <!-- [O quê] Cor da barra do navegador no celular. [Por quê] Combina com a cor principal da marca. -->
+    <meta name="theme-color" content="#00756c" />
+
+    <!-- [O quê] Ícone da aba do navegador (arquivo em public/favicon.svg). -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- [O quê] Título da aba. [Por quê] O React troca este texto em cada página (veja src/hooks/useTituloDaPagina.js). -->
+    <title>Farmácias Associadas Central POA</title>
+
+    <!-- [O quê] Aquece a conexão com o Google Fonts. [Por quê] As fontes carregam mais rápido. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- [O quê] Carrega as fontes do design: Plus Jakarta Sans (títulos) e Inter (textos). -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- [O quê] Carrega os ícones Material Symbols (usados pelo componente Icone). -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- [O quê] Caixa vazia onde o React vai desenhar o site inteiro. [React] É o "root" (raiz) da aplicação. -->
+    <div id="root"></div>
+
+    <!-- [O quê] Carrega o ponto de entrada do JavaScript. [Por quê] type="module" permite usar import/export nos arquivos. -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
