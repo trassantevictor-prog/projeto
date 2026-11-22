@@ -42,5 +42,5 @@ O site está publicado na Netlify: https://farmaciaassociadaspoa.netlify.app/
 
 ## Autor Sergio Trassante
 
-Sergio Trassante — [LinkedIn]([text](https://www.linkedin.com/in/s%C3%A9rgio-t-353a79425/)) · [GitHub](https://github.com/trassantevictor-prog)
+Sergio Trassante — [LinkedIn]([text](https://www.linkedin.com/in/s%C3%A9rgio-t-353a79425/) · [GitHub](https://github.com/trassantevictor-prog)
 
